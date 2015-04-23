@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * Created by T on 19/02/2015.
- */
 public class WelcomeFragment extends Fragment {
 
     private Button buttonOK;
@@ -33,11 +30,9 @@ public class WelcomeFragment extends Fragment {
         return v;
     }
 
-
-
     private void toonInfo() {
         String naam = editTextNaamDocent.getText().toString();
-        if (naam.toLowerCase().startsWith("glenn")) {
+        if (naam.toLowerCase().startsWith("thomas")) {
             textViewWelcome.setText("You will be blessed!");
         } else {
             textViewWelcome.setText("You will be damned!");

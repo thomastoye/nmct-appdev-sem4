@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nmct.appdev.week02.stopafstand.StopAfstandSliderFragment">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecteer uw snelheid"
+        android:id="@+id/textViewSelecteerSnelheid"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBarSnelheid"
+        android:layout_below="@+id/textViewSelecteerSnelheid"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:indeterminate="false"
+        android:max="140" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewHuidigeSnelheid"
+        android:layout_below="@+id/seekBarSnelheid"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecteer uw reactietijd"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textViewHuidigeSnelheid"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBarReactietijd"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:max="20"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewHuidigReactietijd"
+        android:layout_below="@id/seekBarReactietijd"
+        android:gravity="center_horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecteer het wegtype"
+        android:id="@+id/textViewSelecteerWegtype"
+        android:layout_below="@+id/textViewHuidigReactietijd"
+        android:layout_alignParentStart="true" />
+
+
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroupWegdek"
+        android:layout_below="@+id/textViewSelecteerWegtype"
+        android:layout_alignParentStart="true">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Het wegdek ligt droog"
+            android:id="@+id/radioButtonWegdekDroog"
+            android:layout_below="@+id/textViewSelecteerWegtype"
+            android:layout_alignParentStart="true"
+            android:checked="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Het wegdek ligt nat"
+            android:id="@+id/radioButtonWegdekNat"
+            android:layout_below="@+id/radioButtonWegdekDroog"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bereken de stopafstand"
+        android:id="@+id/buttonBerekenStopAfstandSliders"
+        android:layout_below="@+id/radioGroupWegdek"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/editTextReactietijd" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="De stopafstand is"
+        android:id="@+id/textViewStopafstandIs"
+        android:layout_below="@+id/buttonBerekenStopAfstandSliders"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textViewStopAfstandResult"
+        android:layout_below="@+id/textViewStopafstandIs"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
