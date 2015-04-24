@@ -1,3 +1,4 @@
+
 # NMCT App Development (4th semester)
 
 These are my files for the Android App Development course offered in the fourth semester of the [NMCT](http://nmct.be) curriculum.
@@ -156,4 +157,60 @@ Set resource programmatically:
     private ImageView imageViewIllustration = (ImageView) v.findViewById(R.id.imageViewBmi);
     imageViewIllustration.setImageResource(R.drawable.my_drawable_name);
 
+## Preferences
+
+Multiple ways to persist preferences. Easiest: `SharedPreferences`. See [the docs](http://developer.android.com/guide/topics/data/data-storage.html#pref)
+
+### Shared preferences
+
+At the top of the class, define a name for the preference file:
+
+    public static final String PREFS_NAME = "MyPrefsFile";
+
+Now get the preferences:
+
+    SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0)
+    SharedPreferences.Editor editor = settings.edit(); // get an editor
+
+Writing preferences:
+
+    editor.putString("height", editTextHeight.getText().toString());
+    editor.putString("mass", editTextMass.getText().toString());
+    
+    editor.commit(); // persist
+
+Writing preferences should usually happen in the `onStop` method.
+
+Reading preferences (does not require an editor):
+
+        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0);
+        String test = settings.getString("height", "");
+        editTextMass.setText(settings.getString("mass", ""));
+
+The second parameter of `getString` is a default value. Reading preferences and filling the UI back up should usually happen in the `onCreateView` method.
+
+## Bundle and savedInstance
+
+Used only for temporary state (not persistent storage), e.g. when rotating the device.
+
+### Save
+
+In your fragment:
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("color", colorView.getColor());
+    }
+
+### Retrieve
+
+Usually in `onCreate`/`onCreateView`/`onActivityCreated`. Always check if the `Bundle` you're getting is null - if it is, this is a fresh launch and you shouldn't/can't restore state.
+
+
+    if(savedInstanceState != null) {
+        colorView.setColor(savedInstanceState.getString("color", "#FFFFFF"));
+        // ...
+    }
 
