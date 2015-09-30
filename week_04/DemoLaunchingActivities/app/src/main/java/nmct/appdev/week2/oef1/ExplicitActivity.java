@@ -21,7 +21,7 @@ public class ExplicitActivity extends ActionBarActivity {
         setContentView(R.layout.activity_explicit);
 
         String value = getIntent().getStringExtra(ExplicitActivity.EXTRA_INFO);
-        Toast toast = Toast.makeText(getApplicationContext(), value, Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT);
         toast.show();
 
         ((Button)findViewById(R.id.buttonCancel)).setOnClickListener(new View.OnClickListener() {

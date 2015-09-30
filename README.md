@@ -3,8 +3,16 @@
 
 These are my files for the Android App Development course offered in the fourth semester of the [NMCT](http://nmct.be) curriculum.
 
-Following is my cheat sheet/recipe list.
+# Week breakdown
 
+1. Basic Java and enums
+2. Basic Android development, sliders, fragments, drawable resources
+3. `Activity` and `Fragment` lifecycle, Shared Preferences, customs `View`s, `Bundle`s
+4. Explicit `Intent`s, `Intent.putExtra`, ` startActivityForResult`, intent filters, implicit `Intent`s, calling Android framework activities, landscape mode
+5. Communication between fragments and activities, backstack and back navigation
+6. `ListView`, `ArrayAdapter`, custom `AdapterView`s, `CursorAdapter`, `(AsyncTask)Loader`
+7. `GridView`, navigation drawer, `ViewPager`
+8. `MenuItem`, `ShareActionProvider`, reading JSON, `RecyclerView`, `CardView`, `RecyclerView.Adapter`
 
 # Android recipes
 
@@ -133,6 +141,12 @@ Example:
 
     }
 
+### Different layouts for different orientations
+
+Add a folder `layout-land` to your `res` folder and add in XML layouts with the same name in there.
+
+The easier way: edit a layout file in Android studio, then click on the top left icon in the design view, choose `Create landscape variation`.
+
 ## Android Studio new project set-up
 
 1. Always choose the `Activity with Fragment` template
@@ -213,4 +227,14 @@ Usually in `onCreate`/`onCreateView`/`onActivityCreated`. Always check if the `B
         colorView.setColor(savedInstanceState.getString("color", "#FFFFFF"));
         // ...
     }
+
+## Intents
+
+### Launch an activity through an explicit intent
+
+    Intent intent = new Intent(MainActivity.this, ExplicitActivity.class);
+    startActivity(intent);
+
+
+
 

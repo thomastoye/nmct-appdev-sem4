@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast toast = Toast.makeText(getApplicationContext(), "created main activity", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), "created main activity", Toast.LENGTH_SHORT);
         toast.show();
 
         buttonStartExplicitActivity = (Button) findViewById(R.id.buttonExplicitActivity);
